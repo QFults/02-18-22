@@ -24,33 +24,52 @@
     </p>
     <button id="signIn">Sign In</button> -->
 
-    <img 
+  <!-- <img 
       id="cactus"
       src="https://media.giphy.com/media/LRmvoC6jMzvTVRKQCJ/200w.gif" 
       alt="cactus"
       data-animated="https://media.giphy.com/media/LRmvoC6jMzvTVRKQCJ/200w.gif"
       data-still="https://media.giphy.com/media/LRmvoC6jMzvTVRKQCJ/200w_s.gif">
-    <button id="playGif">Pause</button>
-  
+    <button id="playGif">Pause</button> -->
+  <h1>I have coded for <span id="hours">0</span> hours</h1>
+  <button id="increment">1 hour</button>
+  <button id="reset">Reset</button>
   </form>
   <script>
-    let isPlaying = true
+    let hours = parseInt(localStorage.getItem('hours') || 0)
+    document.getElementById('hours').textContent = hours
 
-    document.getElementById('playGif').addEventListener('click', () => {
-      if (isPlaying) {
-        isPlaying = !isPlaying
-        // const stillUrl = document.getElementById('cactus').getAttribute('data-still')
-        const stillUrl = document.getElementById('cactus').dataset.still
-        document.getElementById('cactus').setAttribute('src', stillUrl)
-        document.getElementById('playGif').textContent = 'Play'
-      } else {
-        isPlaying = !isPlaying
-        // const animatedUrl = document.getElementById('cactus').getAttribute('data-animated')
-        const animatedUrl = document.getElementById('cactus').dataset.animated
-        document.getElementById('cactus').setAttribute('src', animatedUrl)
-        document.getElementById('playGif').textContent = 'Pause'
-      }
+    document.getElementById('increment').addEventListener('click', () => {
+      hours++
+      localStorage.setItem('hours', hours)
+      document.getElementById('hours').textContent = hours
     })
+
+    document.getElementById('reset').addEventListener('click', () => {
+      hours = 0
+      localStorage.setItem('hours', hours)
+      document.getElementById('hours').textContent = hours
+    })
+
+    // localStorage.removeItem('hours')
+
+    // let isPlaying = true
+
+    // document.getElementById('playGif').addEventListener('click', () => {
+    //   if (isPlaying) {
+    //     isPlaying = !isPlaying
+    //     // const stillUrl = document.getElementById('cactus').getAttribute('data-still')
+    //     const stillUrl = document.getElementById('cactus').dataset.still
+    //     document.getElementById('cactus').setAttribute('src', stillUrl)
+    //     document.getElementById('playGif').textContent = 'Play'
+    //   } else {
+    //     isPlaying = !isPlaying
+    //     // const animatedUrl = document.getElementById('cactus').getAttribute('data-animated')
+    //     const animatedUrl = document.getElementById('cactus').dataset.animated
+    //     document.getElementById('cactus').setAttribute('src', animatedUrl)
+    //     document.getElementById('playGif').textContent = 'Pause'
+    //   }
+    // })
 
     // document.getElementById('myBtn').addEventListener('click', () => {
     //   document.getElementById('message').textContent = 'Woah! You Clicked The Button!'
