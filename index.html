@@ -13,7 +13,7 @@
   <button id="myBtn">Click Me</button>
   <button id="color">Change Color</button>
   <button onclick="removeText()">Remove Text</button> -->
-  <form>
+  <!-- <form>
     <p>
       <label for="username">username</label>
       <input type="text" name="username" id="username">
@@ -22,9 +22,35 @@
       <label for="password">password</label>
       <input type="password" name="password" id="password">
     </p>
-    <button id="signIn">Sign In</button>
+    <button id="signIn">Sign In</button> -->
+
+    <img 
+      id="cactus"
+      src="https://media.giphy.com/media/LRmvoC6jMzvTVRKQCJ/200w.gif" 
+      alt="cactus"
+      data-animated="https://media.giphy.com/media/LRmvoC6jMzvTVRKQCJ/200w.gif"
+      data-still="https://media.giphy.com/media/LRmvoC6jMzvTVRKQCJ/200w_s.gif">
+    <button id="playGif">Pause</button>
+  
   </form>
   <script>
+    let isPlaying = true
+
+    document.getElementById('playGif').addEventListener('click', () => {
+      if (isPlaying) {
+        isPlaying = !isPlaying
+        // const stillUrl = document.getElementById('cactus').getAttribute('data-still')
+        const stillUrl = document.getElementById('cactus').dataset.still
+        document.getElementById('cactus').setAttribute('src', stillUrl)
+        document.getElementById('playGif').textContent = 'Play'
+      } else {
+        isPlaying = !isPlaying
+        // const animatedUrl = document.getElementById('cactus').getAttribute('data-animated')
+        const animatedUrl = document.getElementById('cactus').dataset.animated
+        document.getElementById('cactus').setAttribute('src', animatedUrl)
+        document.getElementById('playGif').textContent = 'Pause'
+      }
+    })
 
     // document.getElementById('myBtn').addEventListener('click', () => {
     //   document.getElementById('message').textContent = 'Woah! You Clicked The Button!'
@@ -46,13 +72,13 @@
     //   document.getElementById('message').textContent = ''
     // }
 
-    document.getElementById('signIn').addEventListener('click', event => {
-      event.preventDefault()
-      alert('Username: ' + document.getElementById('username').value + ' | Password: ' + document.getElementById('password').value)
+    // document.getElementById('signIn').addEventListener('click', event => {
+    //   event.preventDefault()
+    //   alert('Username: ' + document.getElementById('username').value + ' | Password: ' + document.getElementById('password').value)
 
-      document.getElementById('username').value = ''
-      document.getElementById('password').value = ''
-    })
+    //   document.getElementById('username').value = ''
+    //   document.getElementById('password').value = ''
+    // })
 
   </script>
 </body>
