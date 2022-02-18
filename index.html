@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1 id="message"></h1>
+  <button id="myBtn">Click Me</button>
+  <button id="color">Change Color</button>
+  <button onclick="removeText()">Remove Text</button>
+  <script>
+
+    document.getElementById('myBtn').addEventListener('click', () => {
+      document.getElementById('message').textContent = 'Woah! You Clicked The Button!'
+    })
+
+    let isRed = false
+
+    document.getElementById('color').addEventListener('click', () => {
+      if (isRed) {
+        isRed = !isRed
+        document.getElementById('message').setAttribute('style', 'color: black;')
+      } else {
+        isRed = !isRed
+        document.getElementById('message').setAttribute('style', 'color: red;')
+      }
+    })
+
+    const removeText = () => {
+      document.getElementById('message').textContent = ''
+    }
+
+  </script>
+</body>
+
+</html>
